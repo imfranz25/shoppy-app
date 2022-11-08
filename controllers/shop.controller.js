@@ -1,3 +1,5 @@
 exports.getIndex = (req, res, next) => {
-  res.render('shop/index');
+  res.render('shop/index', {
+    title: 'Shoppy',
+  });
 };
