@@ -6,7 +6,7 @@ const express = require('express');
 const exp = require('constants');
 
 // Initialization
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.set('view engine', 'ejs');

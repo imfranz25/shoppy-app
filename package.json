@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "A customize portfolio inspired for professionals to share with their networks",
+  "description": "A Shopee inspired ecommerce web application",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
