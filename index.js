@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 // Routers
-const shopRoutes = require('./routes/shop');
+const { shopRoutes } = require('./routes');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
