@@ -9,6 +9,7 @@ const productSchema = new Schema({
   },
   productName: {
     type: String,
+    unique: true,
     required: true,
   },
   productPrice: {
@@ -29,25 +30,38 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true,
       },
+      comment: {
+        type: String,
+        required: true,
+      },
+      rating: {
+        type: Number,
+        required: true,
+      },
     },
   ],
-  // productRatings  [{
-  // 	userId: ObjectID
-  // 	Comment (type: String)
-  // Rating : type Number,
-
-  // }]
-  // productShipping {
-  // 	shippingFee (type: Number)
-  // 	shippingLocation (type: String)
-  // }
-  // productSpecification : {
-  // category (type: String)
-  // stock
-  // Fields:{
-  // Key:value - string
-  // }
-  // }
+  productShipping: {
+    shippingFee: {
+      type: Number,
+      required: true,
+    },
+    shippingLocation: {
+      type: String,
+      required: true,
+    },
+  },
+  productSpecification: {
+    stock: {
+      type: Number,
+      required: true,
+    },
+    category: {
+      type: String,
+    },
+    fields: {
+      type: Object,
+    },
+  },
 });
 
-module.exports = productSchema;
+module.exports = mongoose.model('product', productSchema);
