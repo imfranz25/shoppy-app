@@ -3,10 +3,13 @@ const path = require('path');
 
 // 3rd Party Modules
 const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Initialization
-const PORT = process.env.PORT || 8080;
 const app = express();
+const PORT = process.env.PORT || 8080;
+const MONGO_URI = process.env.MONGO_URI;
 
 // Routers
 const { shopRoutes } = require('./routes');
@@ -20,6 +23,10 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(shopRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running in port ${PORT}`);
-});
+mongoose
+  .connect(MONGO_URI, () => {
+    app.listen(PORT, () => {
+      console.log(`Server running in port ${PORT}`);
+    });
+  })
+  .catch((err) => console.log(err));
