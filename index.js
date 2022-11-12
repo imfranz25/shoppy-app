@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 const MONGO_URI = process.env.MONGO_URI;
 
 // Routers
-const { shopRoutes } = require('./routes');
+const { shopRoutes, authRoutes } = require('./routes');
 
 // Express Setup
 app.set('view engine', 'ejs');
@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use(shopRoutes);
+app.use('/auth', authRoutes);
 
 mongoose
   .connect(MONGO_URI, () => {
