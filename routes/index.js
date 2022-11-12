@@ -1,3 +1,4 @@
-const shopRoutes = require('./shop.router');
+const shopRoutes = require('./shop.route');
+const authRoutes = require('./auth.route');
 
-module.exports = { shopRoutes };
+module.exports = { shopRoutes, authRoutes };
